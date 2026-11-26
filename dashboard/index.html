@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <p class="eyebrow">TOKEN LAUNCH RADAR &middot; DEFI SNAPSHOT <span id="asof"></span></p>
+    <h1>Which pre-token protocol is worth farming?</h1>
+    <p class="lede">Every protocol below records no token yet. Each implied value is the model's own claim, computed from the snapshot's TVL, 7-day growth and age without a token — never from a hardcoded list of names. Live-token protocols are the comparables, not the board.</p>
+  </div>
+  <dl class="kpis" id="kpis"></dl>
+</header>
+<section class="model" id="modelbox" aria-label="How the value model works"></section>
+<section class="controls" aria-label="Filters">
+  <label>Search <input id="q" type="search" placeholder="protocol name or slug" autocomplete="off"></label>
+  <label>Category <select id="cat"><option value="">All categories</option></select></label>
+  <label>Chain <select id="chain"><option value="">All chains</option></select></label>
+  <label>Tier <select id="tier"><option value="">Watchlist + early</option><option value="watchlist">Watchlist only</option><option value="early">Early (below floor) only</option></select></label>
+  <label class="check"><input id="gainers" type="checkbox"> 7-day gainers only</label>
+  <p class="count" id="count"></p>
+</section>
+<main>
+  <table id="board">
+    <thead><tr>
+      <th data-k="rank">Rank</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+      <th data-k="tvl_usd">TVL</th><th data-k="change_7d">7d</th><th data-k="age_days">Age</th>
+      <th data-k="implied_value_usd">Implied value</th><th>Tier</th>
+    </tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+  <p class="hint">Click a row for its analyst dossier: model breakdown, live-token comparables, risk flags and the farm playbook.</p>
+</main>
+<section class="detail" id="detail" aria-live="polite"></section>
+<section class="live" id="livebox" aria-label="Live-token comparables"></section>
+<footer>
+  <p>Implied value is this entry's own claim, not make.fun's: it says what a token would be worth if the protocol's record stayed as it is. It does not predict whether or when a token is issued. A protocol that records no token may still have one its DefiLlama record does not carry. Snapshot source and floor are stated in the data file.</p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
